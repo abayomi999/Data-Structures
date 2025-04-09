@@ -17,3 +17,36 @@ for (let i = 0; i < set2.length; i++) {
 }
 
 console.log(sum);
+
+function dotProduct(v1, v2) {
+  let ps = 0;
+  for (let i = 0; i < v1.length; i++) {
+    ps += v1[i] * v2[i];
+  }
+  return ps;
+}
+
+function checkOrthogonality(vectors) {
+  for (let i = 0; i < vectors.length; i++) {
+    for (let j = i + 1; j < vectors.length; j++) {
+      let v1 = vectors[i];
+      let v2 = vectors[j];
+      let dotProductResult = dotProduct(v1, v2);
+      if (dotProductResult === 0) {
+        console.log(`Vectors ${i} and ${j} are orthogonal.`);
+      } else {
+        console.log(`Vectors ${i} and ${j} are not orthogonal.`);
+      }
+    }
+  }
+}
+
+let vectors = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+  [0, 0, 0],
+  [1, 0, 0],
+];
+
+checkOrthogonality(vectors);
